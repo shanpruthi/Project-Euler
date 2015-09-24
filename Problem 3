@@ -1,0 +1,36 @@
+
+// Shan Pruthi - shanpruthi.com
+// projecteuler.net Problem 3 Solution
+//
+
+public class Problem3 {
+
+	public static void main(String[] args) {
+		
+		//initializing the variables, setting the type to long, because they are large numbers
+		
+		Long i = new Long("1"); //Long can store twice the size as long type variable, adn thus is being used here
+		
+	    Long highestPrimeFactor = new Long("0");		
+		
+	    Long number = new Long("600851475143"); //this is the number of which we need to find the factors
+	    
+	    
+	    while (number >= i) //keep doing this until i increases to the size of the number
+	    {
+	        if ((number % i) == 0) //if i is a factor of the number, the mod will be 0
+	        {
+	            
+	        	highestPrimeFactor = i; //if so, update the highestFactor to be equal to i
+	            
+	            number = number / i; //divide the original number by i, to save other division hassle, and fasten the process (if divisible by i 
+	               
+	        }
+	        
+	        i = i + 1; //increase i to continue the while loop, so that it is not an infinite loop
+	    }
+	    
+	    System.out.print(highestPrimeFactor); //print this highest value
+	}
+		
+}			
