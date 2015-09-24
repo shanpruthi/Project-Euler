@@ -1,0 +1,27 @@
+
+// Shan Pruthi - shanpruthi.com
+// projecteuler.net Problem 2 Solution
+// Note* Code written without assistance from online resources
+//
+
+public class Problem2 {
+	
+	public static void main(String[] args) {
+		
+		int sumOfTerms = 0;  //initializing the variables 
+		int firstNum = 1;
+		int secondNum = 2;
+		
+		for (int termNum = 3; termNum <= 4000000; termNum = firstNum + secondNum) { //creating a for loop for the termNum, which will follow the fibonacci sequence
+			firstNum = secondNum; //first number becomes second
+			secondNum = termNum; //second number becomes third number
+		
+			if (termNum%2 == 0) { //if number is divisible by 2, then follow this statement
+				sumOfTerms += termNum; //add the term number to the sumOfTerms
+			
+			}
+		}
+		System.out.print("The sum of the even numbers of the fibonacci series up to 4 million is " + (sumOfTerms + 2));	//outputting the value, we add two to the sumOfTerms because the original secondTerm that should have been added to the sum was not (it was an even number) 
+	}
+
+}
