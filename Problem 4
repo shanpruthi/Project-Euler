@@ -1,0 +1,43 @@
+
+// Shan Pruthi - shanpruthi.com
+// projecteuler.net Problem 4 Solution
+//
+
+public class Problem4 {
+	
+	private static int checkPalindrome() {
+		
+		int productOfNumbers = 0;
+		Integer palindrome = 0;
+		int largest = 0;
+		
+		for (int i = 999; i >= 600; i--) { //instead of going up through the iterations to find the highest palindromes amongst the other palindromes, we can find the highest, by going backwards
+			
+			for (int j = 999; j >= 600; j--) { //it sets it so that for all the combining iterations of i that match up with all the combinations of j, do this for all the cases
+				
+				productOfNumbers = i * j; //making a value by finding the product, which we are then going to check if it is a palindrome
+				
+				String numberAsString = Integer.toString(productOfNumbers); //converting the integer to a string so it can be reversed/analyzed
+				
+				String toAnalyzeFirstString = new StringBuffer(numberAsString).reverse().toString(); //takes the string and reverses the order (already built into the code)
+				
+				if (numberAsString.equals(toAnalyzeFirstString)) { //check to see if it is in fact a palindrome
+					//note for strings, we cannot use ==, but rather firststring.equals(secondstring)
+					palindrome = Integer.valueOf(toAnalyzeFirstString);
+					return (palindrome); //converts string back to an integer and returns it for the function 
+				}
+			}
+		
+		}
+		return palindrome; //needs to return something in case for loop does not work, in order for the static characteristic of returning an output is true
+		
+	}
+	
+	
+	public static void main(String[] args) {
+				
+		int answer = checkPalindrome(); //calls on the earlier function, and sets a variable equal to the returned value
+		
+		System.out.print(answer); //simply will print the final answer of the palindrome
+	}
+}
